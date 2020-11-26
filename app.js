@@ -46,7 +46,7 @@ function app() {
           <p>${contents.title}</p>
           <span id="price">$${contents.price}.00</span>
       </div>
-      <button>${cartbtn}</button>
+      <button></button>
   </div>`
     })
     .join("");
@@ -58,12 +58,20 @@ document.querySelector(".product-container").innerHTML = items;
   })
 }
 
-var cartbtn = 'add to cart'
 
-function btn() {
-  cartbtn.addEventListener("click")
-}
-btn();
+/*var aabtn = document.getElementById('btn');
+let cartbtn = document.createElement('button');
+cartbtn.innerHTML = "Add To Cart";
+//aabtn.appendChild(cartbtn);
+
+aabtn.addEventListener ("click", function() {
+  alert("did something");
+});
+*/
+
+
+
+
 
   
 let wi = window.addEventListener("DOMContentLoaded", () => {
