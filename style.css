@@ -66,7 +66,32 @@ header h1 {
     width: 100%;
 }
 
+@media screen and (max-width: 768px), (min-device-width: 768px) and (max-device-width: 1024px) and (orientation : portrait) {
+    /* CSS */
+    .product-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        background-color: darkgrey;
+        margin-top: 50px;
+        width: 100%;
+        grid-gap: 10px;
+    }
 
+    .item img {
+        height: 100px;
+        width: 100px;
+        padding: 10px;
+    }
+
+    .item {
+        width: 100%;
+        margin-top: 10px;
+
+    }
+    header {
+        width: 100%;
+    }
+    }
 
 
 @media screen and (max-width: 700px){
