@@ -46,7 +46,7 @@ function app() {
           <p>${contents.title}</p>
           <span id="price">$${contents.price}.00</span>
       </div>
-      <button id="add-to-cart">add to cart</button>
+      <button>${cartbtn}</button>
   </div>`
     })
     .join("");
@@ -58,10 +58,18 @@ document.querySelector(".product-container").innerHTML = items;
   })
 }
 
+var cartbtn = 'add to cart'
 
-window.addEventListener("DOMContentLoaded", () => {
+function btn() {
+  cartbtn.addEventListener("click")
+}
+btn();
+
+  
+let wi = window.addEventListener("DOMContentLoaded", () => {
   app();
+ 
+
 });
 
-let w = window.screen.width;
-console.log(w)
+
