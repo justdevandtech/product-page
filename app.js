@@ -43,7 +43,7 @@ function app() {
       return ` <div class="item">
       <img src=${contents.image_url} alt="">
       <div class="discrpt">
-          <p>${contents.title}</p>
+          <p id="title">${contents.title}</p>
           <span id="price">$${contents.price}.00</span>
       </div>
       <button></button>

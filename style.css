@@ -45,6 +45,8 @@ header h1 {
     background-color: white;
     margin: 10px;
     text-align: center;
+    border-radius: 10px;
+    padding: 5px 15px;
 }
 
 .item img {
@@ -85,7 +87,9 @@ header h1 {
 
     .item {
         width: 100%;
+        margin: auto;
         margin-top: 10px;
+        height: 230px;
 
     }
     header {
@@ -113,6 +117,7 @@ header h1 {
     .item {
         width: 100%;
         margin-top: 10px;
+       
 
     }
     header {
@@ -123,10 +128,16 @@ header h1 {
 #price {
     font-size: 20px;
     font-weight: bold;
+    padding-top: 10px;
+}
+
+#title {
+    margin-bottom: 15px;
 }
 
 .discrpt {
     margin-bottom: 10px;
+    text-align: center;
 }
 
 #add-to-cart {
