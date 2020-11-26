@@ -30,6 +30,14 @@ function app() {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ query })
   };
+
+ 
+
+  if(!localStorage.getItem('cart')){
+    localStorage.setItem('cart', JSON.stringify([]));
+  }
+  
+
   fetch(url, opts).then(response => {
     console.log(response)
     if (!response.ok) {
@@ -38,7 +46,8 @@ function app() {
     return response.json();
   })
   .then(data => {
-    console.log(data.data.products);
+    // console.log(JSON.stringify(data.data.products[0]));
+    localStorage.setItem('products', JSON.stringify(data.data.products));
     const items = data.data.products.map(contents => {
       return ` <div class="item">
       <img src=${contents.image_url} alt="">
@@ -46,7 +55,7 @@ function app() {
           <p id="title">${contents.title}</p>
           <span id="price">$${contents.price}.00</span>
       </div>
-      <button></button>
+      <button id="addbtn" onclick="myitem(${contents.id})">add</button>
   </div>`
     })
     .join("");
@@ -58,26 +67,42 @@ document.querySelector(".product-container").innerHTML = items;
   })
 }
 
+function myitem(itemId) {
+  
+  console.log(itemId);
 
-/*var aabtn = document.getElementById('btn');
-let cartbtn = document.createElement('button');
-cartbtn.innerHTML = "Add To Cart";
-//aabtn.appendChild(cartbtn);
+  let products   =  JSON.parse(localStorage.getItem('products'));
 
-aabtn.addEventListener ("click", function() {
-  alert("did something");
-});
-*/
+  console.log('Check  ', products);
+
+ 
+
+  for (let i = 0; i < products.length; i++) {
+    if(products[i]['id'] === itemId){
+      let cart  = JSON.parse(localStorage.getItem('cart')); 
+      console.log('cccc', typeof cart)
+      cart.push(products[i]);
+      localStorage.setItem('cart', JSON.stringify(cart));
+    
+      return;
+    }
+    
+  }
+
+
+}
+
+
+
 
 
 
 
 
   
-let wi = window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("DOMContentLoaded", () => {
   app();
  
-
 });
 
 

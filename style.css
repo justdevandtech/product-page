@@ -1,14 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
 }
 
 body{
-    background-color: darkgrey;
+    background-color: rgb(129, 127, 127);
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
 }
 
 .container {
@@ -19,34 +20,45 @@ body{
 nav {
     background-color: white;
     padding: 20px 0px;
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    bottom: 100;
+}
+.logo{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0px;
+    
+}
+
+#cart-icon{
+    font-size: 50px;
+    padding-right: 40px;
 }
 
 .logo img {
 width: 200px;
+margin-left: 10px;
 }
 
 header {
-    background-color: black;
-    color: white;
-    width: 60%;
-    display: flex;
-    margin: auto;
-    margin-top: 50px;
+    color: ;
 }
 
 header h1 {
     text-align: center;
-    margin: auto;
-    padding: 10px;
+
     text-transform: capitalize;
 }
 
 .item {
-    background-color: white;
+   /* background-color: white;*/
     margin: 10px;
     text-align: center;
     border-radius: 10px;
     padding: 5px 15px;
+    color: white;
 }
 
 .item img {
@@ -58,14 +70,16 @@ header h1 {
     display: flex;
     justify-content: center;
     margin:  auto;
+    margin-top: 100px;
+   
 }
 
 .product-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    background-color: darkgrey;
+    /*width: 100%;*/
     margin-top: 50px;
-    width: 100%;
+    
 }
 
 @media screen and (max-width: 768px), (min-device-width: 768px) and (max-device-width: 1024px) and (orientation : portrait) {
@@ -73,7 +87,6 @@ header h1 {
     .product-container {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        background-color: darkgrey;
         margin-top: 50px;
         width: 100%;
         grid-gap: 10px;
@@ -102,7 +115,6 @@ header h1 {
     .product-container {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        background-color: darkgrey;
         margin-top: 50px;
         width: 100%;
         grid-gap: 10px;
@@ -140,9 +152,9 @@ header h1 {
     text-align: center;
 }
 
-#add-to-cart {
+#addbtn {
     margin-bottom: 10px;
-    padding: 5px 7px;
+    padding: 20px 70px;
     text-transform: capitalize;
     background-color: black;
     color: white;
@@ -150,7 +162,7 @@ header h1 {
     border-radius: 5px;
 }
 
-#add-to-cart:hover {
+#addbtn:hover {
     background-color: wheat;
     color: black;
 }
