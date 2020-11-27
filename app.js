@@ -109,11 +109,7 @@ function myitem(itemId) {
         <img id="cartimg" src=${cartsitems.image_url} alt="">
         <span id="cartprice">$${cartsitems.price}.00</span>
         <input type="number" id="cartnum" value="0">
-        <span id="plus" onclick="cartAdd">+</span>
-        <span id="subtra">-</span>
-        <di>
         <span id="removeitem" onclick="removeItem(${cartsitems.id})">remove</span>
-        </div>
     </div>`
       })
       .join("");
