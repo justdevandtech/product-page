@@ -75,7 +75,7 @@ function app() {
           <p id="title">${contents.title}</p>
           <span id="price">$${contents.price}.00</span>
       </div>
-      <button id="addbtn" onclick="myitem(${contents.id})">add</button>
+      <button id="addbtn" onclick="myitem(${contents.id})">add to cart</button>
   </div>`
     })
     .join("");
@@ -90,12 +90,9 @@ app();
 
 
 function myitem(itemId) {
- // console.log(itemId);
  cartitem.classList.add("cartitem-active");
 
   let products   =  JSON.parse(localStorage.getItem('products'));
-
- // console.log('Check  ', products);
 
   for (let i = 0; i < products.length; i++) {
     if(products[i]['id'] === itemId){
@@ -134,12 +131,9 @@ function removeItem(itemId) {
     console.log('Check => ', cart)
     localStorage.setItem('cart', JSON.stringify(cart));
     location.reload();
-    cartitem.classList.add("cartitem-active");
-
-    
-    
+   
   }
-
+  
 }
 
 

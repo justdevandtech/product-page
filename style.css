@@ -143,15 +143,16 @@ margin-left: 10px;
 
 
 
-header h1 {
+.header h1 {
     text-align: center;
-
     text-transform: capitalize;
+    background-color: black;
+    color: white;
+    padding: 10px;
 }
 
 .item {
-   /* background-color: white;*/
-    margin: 10px;
+    margin: 20px;
     text-align: center;
     border-radius: 10px;
     padding: 5px 15px;
@@ -159,7 +160,7 @@ header h1 {
 }
 
 .item img {
-    height: 200px;
+    height: 210px;
     width: 250px;
 }
 
