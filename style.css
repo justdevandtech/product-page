@@ -14,7 +14,7 @@ body{
 
 .container {
     width: 80%;
-   /*max-width: 1100px;*/
+   max-width: 1100px;
    margin: auto;
 }
 nav {
@@ -26,7 +26,6 @@ nav {
     bottom: 100;
     display: flex;
     justify-content: space-between;
-    position: relative;
 }
 
 .cartitem {
@@ -34,7 +33,7 @@ nav {
     position: absolute;
     right: 0;
     height: 100;
-    top: 10vh;
+    top: 10.88vh;
     width: 40%;
     display: none;
 
@@ -64,17 +63,22 @@ nav {
     text-align: center;
     background-color: red;
     display: flex;
+    width: 50%;
     margin: auto;
     border: none;
     margin-top: 100px;
     padding: 10px;
     text-transform: capitalize;
-    /*display: none*/
 }
 
 @media screen and (max-width: 700px){
     .cartitem{
         width: 100%;
+    }
+
+    #cart-icon {
+        margin-right: 10px;
+        padding-right: 10;
     }
 }
 
@@ -83,9 +87,14 @@ nav {
         width: 100%;
         right: 0;
         left: 0;
+        top: 12vh;
     }
     #closecartitems{
         display: block;
+    }
+
+    #cart-icon {
+        margin-right: 10px;
     }
 }
 

@@ -66,7 +66,7 @@ function app() {
     return response.json();
   })
   .then(data => {
-    // console.log(JSON.stringify(data.data.products[0]));
+   
     localStorage.setItem('products', JSON.stringify(data.data.products));
     const items = data.data.products.map(contents => {
       return ` <div class="item">
@@ -102,7 +102,7 @@ function myitem(itemId) {
       localStorage.setItem('cart', JSON.stringify(cart));
 
       const cartspert =cart.map(cartsitems => {
-        return ` <div class="cartpros">
+        return `<div class="cartpros">
         <img id="cartimg" src=${cartsitems.image_url} alt="">
         <span id="cartprice">$${cartsitems.price}.00</span>
         <input type="number" id="cartnum" value="0">
@@ -138,17 +138,9 @@ function removeItem(itemId) {
 
 
 
-  
-
-
-
 //opening cart
 cartIcon.addEventListener("click", function () {
   cartitem.classList.toggle("cartitem-active");
 });
 
-//closing cart after opening
-/*closecart.addEventListener("click", function () {
-  cartitem.classList.remove("cartitem-active");
-});*/
 
