@@ -24,17 +24,116 @@ nav {
     width: 100%;
     top: 0px;
     bottom: 100;
-}
-.logo{
     display: flex;
     justify-content: space-between;
-    margin-top: 0px;
-    
+    position: relative;
+}
+
+.cartitem {
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    right: 0;
+    height: 100;
+    top: 10vh;
+    width: 40%;
+    display: none;
+
+}
+
+.cartitem-active{
+    display: block;
+}
+
+.cartitem  h1{
+    text-align: center;
+    border: 1px solid;
+    padding: 10px;
+    text-transform: capitalize;
+}
+
+.cartpros {
+    display: flex;
+    /*justify-content: space-around;*/
+    background-color: whitesmoke;
+    width: 90%;
+    margin: auto;
+    margin-top: 10px;
+}
+
+#closecartitems {
+    text-align: center;
+    background-color: red;
+    display: flex;
+    margin: auto;
+    border: none;
+    margin-top: 100px;
+    padding: 10px;
+    text-transform: capitalize;
+    /*display: none*/
+}
+
+@media screen and (max-width: 700px){
+    .cartitem{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .cartitem{
+        width: 100%;
+        right: 0;
+        left: 0;
+    }
+    #closecartitems{
+        display: block;
+    }
+}
+
+.cartpros img{
+    width: 70px;
+    height: 80px;
+}
+
+#cartnum {
+   background-color: wheat;
+   align-self: center;
+   padding: 10px;
+   border-radius: 5px;
+   margin: 10px;
+   width: 50px;
+}
+
+#plus,#subtra,#cartprice{
+    align-self: center;
+    background-color: wheat;
+    padding: 10px 20px; 
+    margin: 20px;
+}
+
+#removeitem{
+    background-color: red;
+    color: white;
+    align-self: center;
+    padding: 10px;
 }
 
 #cart-icon{
     font-size: 50px;
     padding-right: 40px;
+    margin-right: 50px;
+}
+
+.closecart{
+    background-color: red;
+    color: white;
+    font-size: 23px;
+    width: 50px;
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px;
+    position: absolute;
+    top: 90px;
+    left: -50px;
 }
 
 .logo img {
@@ -42,9 +141,7 @@ width: 200px;
 margin-left: 10px;
 }
 
-header {
-    color: ;
-}
+
 
 header h1 {
     text-align: center;
@@ -154,7 +251,7 @@ header h1 {
 
 #addbtn {
     margin-bottom: 10px;
-    padding: 20px 70px;
+    padding: 10px 20px;
     text-transform: capitalize;
     background-color: black;
     color: white;
@@ -166,3 +263,4 @@ header h1 {
     background-color: wheat;
     color: black;
 }
+

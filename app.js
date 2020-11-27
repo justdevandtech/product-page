@@ -1,5 +1,7 @@
 
-
+const cartIcon = document.getElementById("cart-icon");
+const cartitem = document.querySelector(".cartitem");
+const closecart = document.querySelector(".closecart");
   
 const query = `
 query {
@@ -24,6 +26,8 @@ query {
 `;
 const url = "https://pangaea-interviews.now.sh/api/graphql";
 
+
+
 function app() {
   const opts = {
     method: "POST",
@@ -35,11 +39,27 @@ function app() {
 
   if(!localStorage.getItem('cart')){
     localStorage.setItem('cart', JSON.stringify([]));
+  } else {
+
+    let cart  = JSON.parse(localStorage.getItem('cart'));
+    cartitem.innerHTML = '';
+    const cartspert =cart.map(cartsitems => {
+      return ` <div class="cartpros">
+      <img id="cartimg" src=${cartsitems.image_url} alt="">
+      <span id="cartprice">${cartsitems.price}</span>
+      <input type="number" id="cartnum" value="0">
+      <span id="plus" onclick="cartAdd">+</span>
+      <span id="subtra">-</span>
+      <span id="removeitem" onclick="removeItem(${cartsitems.id})">remove</span>
+  </div>`
+    })
+    .join("");
+    cartitem.innerHTML+=`${cartspert}<br />`;
   }
   
 
   fetch(url, opts).then(response => {
-    console.log(response)
+    //console.log(response)
     if (!response.ok) {
       throw Error('ERROR')
     }
@@ -66,43 +86,79 @@ document.querySelector(".product-container").innerHTML = items;
     console.log(error);
   })
 }
+app();
+
 
 function myitem(itemId) {
-  
-  console.log(itemId);
+ // console.log(itemId);
+ cartitem.classList.add("cartitem-active");
 
   let products   =  JSON.parse(localStorage.getItem('products'));
 
-  console.log('Check  ', products);
-
- 
+ // console.log('Check  ', products);
 
   for (let i = 0; i < products.length; i++) {
     if(products[i]['id'] === itemId){
       let cart  = JSON.parse(localStorage.getItem('cart')); 
-      console.log('cccc', typeof cart)
+     // console.log('cccc', typeof cart)
       cart.push(products[i]);
       localStorage.setItem('cart', JSON.stringify(cart));
-    
-      return;
+
+      const cartspert =cart.map(cartsitems => {
+        return ` <div class="cartpros">
+        <img id="cartimg" src=${cartsitems.image_url} alt="">
+        <span id="cartprice">$${cartsitems.price}.00</span>
+        <input type="number" id="cartnum" value="0">
+        <span id="plus" onclick="cartAdd">+</span>
+        <span id="subtra">-</span>
+        <di>
+        <span id="removeitem" onclick="removeItem(${cartsitems.id})">remove</span>
+        </div>
+    </div>`
+      })
+      .join("");
+      cartitem.innerHTML+=`${cartspert}<br />`;
+      
     }
+  }
+  
+}
+
+function removeItem(itemId) {
+  console.log(itemId);
+
+  let cart  = JSON.parse(localStorage.getItem('cart'));
+
+  for (let a = 0; a < cart.length; a++) {
+    
+    if(cart[a]['id'] === itemId){
+     cart.splice(a,1);
+    }
+
+    console.log('Check => ', cart)
+    localStorage.setItem('cart', JSON.stringify(cart));
+    location.reload();
+    cartitem.classList.add("cartitem-active");
+
+    
     
   }
-
 
 }
 
 
 
-
-
-
-
-
   
-window.addEventListener("DOMContentLoaded", () => {
-  app();
- 
+
+
+
+//opening cart
+cartIcon.addEventListener("click", function () {
+  cartitem.classList.toggle("cartitem-active");
 });
 
+//closing cart after opening
+/*closecart.addEventListener("click", function () {
+  cartitem.classList.remove("cartitem-active");
+});*/
 
