@@ -136,8 +136,6 @@ function removeItem(itemId) {
   
 }
 
-
-
 //opening cart
 cartIcon.addEventListener("click", function () {
   cartitem.classList.toggle("cartitem-active");
